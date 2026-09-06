@@ -1,0 +1,10 @@
+# 敏感性資料 — 切勿提交
+cookies.json
+config.json
+
+# Python
+__pycache__/
+*.pyc
+
+# 抓取輸出
+posts*.json
