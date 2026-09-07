@@ -74,7 +74,7 @@
 const SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";
 const SUPABASE_ANON_KEY = "YOUR_ANON_KEY";
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const kwEl = document.getElementById("kw");
 const goEl = document.getElementById("go");
@@ -105,7 +105,7 @@ async function search() {
   resultsEl.innerHTML = "";
 
   const pattern = "%" + kw + "%";
-  const { data, error } = await supabase
+  const { data, error } = await client
     .from("posts")
     .select("*")
     .or(`text.ilike.${pattern},username.ilike.${pattern},full_name.ilike.${pattern}`)
